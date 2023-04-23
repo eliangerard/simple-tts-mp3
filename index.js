@@ -14,9 +14,9 @@ function createAudioFile(text, fileName, language = 'es') {
 
   googleTTS.getAllAudioBase64(text, { lang: language })
     .then((result) => {
-      const base64Data = result[0].base64;
-      const buffer = Buffer.from(base64Data, 'base64');
-      fs.writeFileSync(filePath, buffer);
+      const buffers = result.map(result => Buffer.from(result.base64, 'base64'));
+      const finalBuffer = Buffer.concat(buffers);
+      fs.writeFileSync(filePath, finalBuffer);
       console.log(`Audio file ${filePath} created successfully`);
     })
     .catch((err) => {
@@ -34,9 +34,9 @@ function createAudioFile(text, fileName, language = 'es') {
 function getAudioBuffer(text, language = 'es') {
   return googleTTS.getAllAudioBase64(text, { lang: language })
     .then((result) => {
-      const base64Data = result[0].base64;
-      const buffer = Buffer.from(base64Data, 'base64');
-      return buffer;
+      const buffers = result.map(result => Buffer.from(result.base64, 'base64'));
+      const finalBuffer = Buffer.concat(buffers);
+      return finalBuffer;
     });
 }
 
