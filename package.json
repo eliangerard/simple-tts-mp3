@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Converts text to mp3 audio using the Google Text-to-Speech API",
   "main": "index.js",
-  "scripts": {
-    "test": "node test/test.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eliangerard/text-to-mp3.git"
