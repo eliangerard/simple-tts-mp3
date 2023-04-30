@@ -11,6 +11,8 @@ If you like it, please leave a ⭐ **STAR** on [GitHub](https://github.com/elian
  * text - The text to convert to audio.
  * fileName - The name of the audio file to create (can include a relative path, `ex: ./folder/name`).
  * language - The language of the text (ISO 639-1 code) (optional, default is English - en).
+ 
+ Check the [wiki](https://github.com/eliangerard/simple-tts-mp3/wiki) to see all the languages supported by this package.
 
 ### Installation
 ```bash
