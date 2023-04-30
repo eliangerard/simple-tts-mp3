@@ -7,9 +7,9 @@ const path = require('path');
  *
  * @param {string} text - The text to convert to audio.
  * @param {string} fileName - The name of the audio file to create (can include a relative path).
- * @param {string} [language='es'] - The language of the text (ISO 639-1 code) (optional).
+ * @param {string} [language='en'] - The language of the text (ISO 639-1 code) (optional).
  */
-function createAudioFile(text, fileName, language = 'es') {
+function createAudioFile(text, fileName, language = 'en') {
   const filePath = path.resolve(`${fileName}.mp3`);
 
   googleTTS.getAllAudioBase64(text, { lang: language })
@@ -28,10 +28,10 @@ function createAudioFile(text, fileName, language = 'es') {
  * Gets an mp3 audio buffer from text.
  *
  * @param {string} text - The text to convert to audio.
- * @param {string} [language='es'] - The language of the text (ISO 639-1 code) (optional).
+ * @param {string} [language='en'] - The language of the text (ISO 639-1 code) (optional).
  * @returns {Promise<Buffer>} A promise that resolves with the mp3 audio buffer.
  */
-function getAudioBuffer(text, language = 'es') {
+function getAudioBuffer(text, language = 'en') {
   return googleTTS.getAllAudioBase64(text, { lang: language })
     .then((result) => {
       const buffers = result.map(result => Buffer.from(result.base64, 'base64'));
