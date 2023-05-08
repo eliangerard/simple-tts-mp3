@@ -5,11 +5,11 @@ const path = require('path');
 /**
  * Creates an mp3 audio file from text.
  *
- * @param {string} text - The text to convert to audio.
- * @param {string} fileName - The name of the audio file to create (can include a relative path).
- * @param {string} [language='en'] - The language of the text (ISO 639-1 code) (optional).
-* 
- * @supportedLanguages
+ * @param {string} text The text to convert to audio.
+ * @param {string} fileName The name of the audio file to create (can include a relative path).
+ * @param {string} [language='en'] The language of the text (ISO 639-1 code) (optional, default is English 'en').
+ * 
+ * - Supported Languages
  *  - af - Afrikaans
  *  - sq - Albanian
  *  - de - German
@@ -66,7 +66,7 @@ const path = require('path');
  *  - uk - Ukrainian
  *  - ur - Urdu
  *  - vi - Vietnamese
- */
+*/
 function createAudioFile(text, fileName, language = 'en') {
   const filePath = path.resolve(`${fileName}.mp3`);
 
@@ -85,11 +85,9 @@ function createAudioFile(text, fileName, language = 'en') {
 /**
  * Gets an mp3 audio buffer from text.
  *
- * @param {string} text - The text to convert to audio.
- * @param {string} [language='en'] - The language of the text (ISO 639-1 code) (optional).
- * @returns {Promise<Buffer>} A promise that resolves with the mp3 audio buffer.
- * 
- * @supportedLanguages
+ * @param {string} text The text to convert to audio.
+ * @param {string} [language='en'] The language of the text (ISO 639-1 code) (optional).
+ * - Supported Languages
  *  - af - Afrikaans
  *  - sq - Albanian
  *  - de - German
@@ -146,7 +144,10 @@ function createAudioFile(text, fileName, language = 'en') {
  *  - uk - Ukrainian
  *  - ur - Urdu
  *  - vi - Vietnamese
- */
+ * 
+ * @returns {Promise<Buffer>} A promise that resolves with the mp3 audio buffer.
+ * 
+*/
 function getAudioBuffer(text, language = 'en') {
   return googleTTS.getAllAudioBase64(text, { lang: language })
     .then((result) => {
