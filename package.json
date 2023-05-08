@@ -1,6 +1,6 @@
 {
   "name": "simple-tts-mp3",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Converts text to mp3 audio using google-tts-api, it hasn't a limit",
   "main": "index.js",
   "types": "simple-tts-mp3.d.ts",
