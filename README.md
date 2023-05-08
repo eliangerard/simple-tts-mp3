@@ -1,5 +1,5 @@
 # simple-tts-mp3 package
-This package provides two methods to create MP3 audio files from text using the google-tts-api module, find it on [npm](https://www.npmjs.com/package/simple-tts-mp3/)!
+This package provides two methods to create MP3 audio files from text using the google-tts-api module, it's compatible with TypeScript too, find it on [npm](https://www.npmjs.com/package/simple-tts-mp3/)!
 
 If you like it, please leave a ⭐ **STAR** on [GitHub](https://github.com/eliangerard/simple-tts-mp3) ⭐
 
