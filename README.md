@@ -5,7 +5,7 @@ If you like it, please leave a ⭐ **STAR** on [GitHub](https://github.com/elian
 
 | Method              | Options [optional]                       | Description                                         |
 | ------------------- | ---------------------------------------- | --------------------------------------------------- |
-| createAudioFile     | text, fileName, [language = 'en']        | Creates an mp3 audio file from text.                |
+| createAudioFile     | text, fileName, [language = 'en']        | Creates an mp3 audio file from text and returns its final path - Promise (String)                |
 | getAudioBuffer      | text, [language = 'en']                  | Creates an mp3 audio buffer from text and returns it - Promise (Buffer)                                    |
 
  * text - The text to convert to audio.
@@ -28,11 +28,13 @@ const { createAudioFile } = require('simple-tts-mp3');
 // Creates an "output.mp3" audio file with default English text
 createAudioFile('Hi, How are you?', 'output');
 
-// Creates an "output.mp3" audio file with Spanish text
-createAudioFile('Hola, ¿Cómo estás?', 'output', 'es');
+// Creates an "output.mp3" audio file with Spanish text and promise resolved
+createAudioFile('Hola, ¿Cómo estás?', 'output', 'es').then((filepath) => {
+    console.log(filepath);
+});
 
-// Creates an "output.mp3" audio file with Spanish text inside the "audios" folder
-createAudioFile('Todo bien, gracias', './audios/output', 'es');
+// Creates an "output.mp3" audio file with Spanish text inside the "audios" folder and awaits filepath
+const filepath = await createAudioFile('Todo bien, gracias', './audios/output', 'es');
 ```
 + getAudioBuffer( text, language = 'en')
 ```js
@@ -44,4 +46,7 @@ getAudioBuffer('Hola, ¿cómo estás?', 'es')
   .then(buffer => {
     // Do something with the buffer
   });
+  
+// Creates an MP3 audio buffer with default English text and awaits it
+const buffer = await getAudioBuffer('Hi, How are you?');
 ```

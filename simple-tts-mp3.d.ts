@@ -7,6 +7,8 @@ declare module 'simple-tts-mp3' {
      * @param {string} fileName The name of the audio file to create (can include a relative path).
      * @param {string} [language='en'] The language of the text (ISO 639-1 code) (optional, default is English 'en').
      * 
+     * @returns {Promise<string>} A promise that resolves with the file path when the audio file is created.
+     * 
      * - Supported Languages
      *  - af - Afrikaans
      *  - sq - Albanian
@@ -65,13 +67,16 @@ declare module 'simple-tts-mp3' {
      *  - ur - Urdu
      *  - vi - Vietnamese
     */
-    export function createAudioFile(text: string, fileName: string, language?: string): void;
+    export function createAudioFile(text: string, fileName: string, language?: string): Promise<string>;
 
     /**
      * Gets an mp3 audio buffer from text.
      *
      * @param {string} text The text to convert to audio.
      * @param {string} [language='en'] The language of the text (ISO 639-1 code) (optional).
+     * 
+     * @returns {Promise<Buffer>} A promise that resolves with the mp3 audio buffer.
+     * 
      * - Supported Languages
      *  - af - Afrikaans
      *  - sq - Albanian
@@ -129,9 +134,6 @@ declare module 'simple-tts-mp3' {
      *  - uk - Ukrainian
      *  - ur - Urdu
      *  - vi - Vietnamese
-     * 
-     * @returns {Promise<Buffer>} A promise that resolves with the mp3 audio buffer.
-     * 
     */
     export function getAudioBuffer(text: string, language?: string): Promise<Buffer>;
 }
